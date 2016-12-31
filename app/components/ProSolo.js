@@ -1,7 +1,9 @@
 var React = require('react');
+var PropTypes = React.PropTypes;
 var Selections = require('./Selections');
 
-var Solo = React.createClass({
+var ProSolo = React.createClass({
+
   render: function () {
     return (
       <div>
@@ -11,10 +13,14 @@ var Solo = React.createClass({
             <h2>{this.props.header}</h2>
           </article>
         </section>
-        <Selections pronoun="Your"/>
+        <Selections />
       </div>
     );
   },
 });
 
-module.exports = Solo;
+ProSolo.propTypes = {
+  header: PropTypes.string.isRequired,
+};
+
+module.exports = ProSolo;
