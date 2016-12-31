@@ -1,11 +1,12 @@
 var React = require('react');
-var ProSolo = require('../components/ProSolo');
+var Calculator = require('../components/Calculator');
 
 var ProSoloContainer = React.createClass({
   render: function() {
     return (
-      <ProSolo
-      header={this.props.route.header} />
+      <Calculator
+      header={this.props.route.header}
+      switchLink="/" />
     )
   }
 });

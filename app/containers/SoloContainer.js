@@ -1,11 +1,12 @@
 var React = require('react');
-var Solo = require('../components/Solo');
+var Calculator = require('../components/Calculator');
 
 var SoloContainer = React.createClass({
   render: function() {
     return (
-      <Solo
-      header={this.props.route.header} />
+      <Calculator
+      header={this.props.route.header}
+      switchLink="/prosolo" />
     )
   }
 });
