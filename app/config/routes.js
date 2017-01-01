@@ -5,14 +5,13 @@ var Route = ReactRouter.Route;
 var hashHistory = ReactRouter.hashHistory;
 var IndexRoute = ReactRouter.IndexRoute;
 var Main = require('../components/Main');
-var SoloContainer = require('../containers/SoloContainer');
-var ProSoloContainer = require('../containers/ProSoloContainer');
+var CalculatorContainer = require('../containers/CalculatorContainer');
 
 var routes = (
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
-      <IndexRoute header="Solo Indices" component={SoloContainer} />
-      <Route path="prosolo" header="ProSolo Indices" component={ProSoloContainer} />
+      <IndexRoute header="Solo" component={CalculatorContainer} />
+      <Route path="prosolo" header="ProSolo" component={CalculatorContainer} />
     </Route>
   </Router>
 );
