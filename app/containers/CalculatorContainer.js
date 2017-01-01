@@ -15,10 +15,15 @@ function domData(props) {
 
 var CalculatorContainer = React.createClass({
   getInitialState: function () {
-    return (domData(this.props));
+    state = domData(this.props);
+    state.compare = false;
+    return state;
   },
   componentWillReceiveProps: function () {
-    this.state = domData(this.props);
+    this.setState(domData(this.props));
+  },
+  handleShowCompare: function() {
+    this.setState({compare: true});
   },
   render: function() {
     return (
@@ -26,6 +31,8 @@ var CalculatorContainer = React.createClass({
         header={this.props.route.header}
         switchLink={this.state.switchLink}
         switchButton={this.state.switchButton}
+        compare={this.state.compare}
+        onShowCompare={this.handleShowCompare}
       />
     );
   },
