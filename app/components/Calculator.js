@@ -10,9 +10,11 @@ function Calculator(props) {
       <section className="row">
         <article className="col-xs-12">
           <h1>SCCA RTP Calculator</h1>
-          <h2>{props.header} Indices</h2>
+          <h3>{props.header} Indices</h3>
           <Link to={props.switchLink}>
-            <button type="button">Switch to {props.switchButton}</button>
+            <div className="center">
+              <button type="button">Switch to {props.switchButton}</button>
+            </div>
           </Link>
         </article>
       </section>
