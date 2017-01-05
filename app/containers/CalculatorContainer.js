@@ -1,5 +1,6 @@
 var React = require('react');
 var Calculator = require('../components/Calculator');
+var Indices = require('../components/Indices')
 
 function domData(props) {
   var stateObj = {}
@@ -10,6 +11,7 @@ function domData(props) {
       stateObj.switchLink = '/prosolo';
       stateObj.switchButton = 'ProSolo';
     }
+    stateObj.indices = Indices;
   return stateObj;
 }
 

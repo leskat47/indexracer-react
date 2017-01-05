@@ -1,4 +1,4 @@
-var classes = {'Street Touring': {
+const Indices = {'Street Touring': {
   STF: '0.8',
   STU: '0.831',
   STP: '0.82',
@@ -63,3 +63,5 @@ Junior: {
   JC: '0.726',
 },
 };
+
+module.exports = Indices;
