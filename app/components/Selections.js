@@ -6,6 +6,7 @@ function Selections (props) {
       <form>
         <h2>{props.pronoun} SCCA Class Category:</h2>
         <select>
+          {props.cats}
           <option value="A">A</option>
           <option value="B">B</option>
         </select>
