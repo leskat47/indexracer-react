@@ -1,19 +1,18 @@
 var React = require('react');
-
+var PropTypes = React.PropTypes;
 
 function Selections (props) {
   console.log(props)
   return (
-      <div>
+    <div>
       <form>
         <h2>{props.pronoun} SCCA Class Category:</h2>
-    <select>
-      { props.cats.map((choice) => <option key={choice} value={choice}>{choice}</option>) }
-    </select>
+        <select onChange={props.onChangeCategory}>
+          {props.cats.map((choice) => <option key={choice} value={choice}>{choice}</option>)}
+        </select>
         <h2>{props.pronoun}  SCCA Class:</h2>
         <select>
-          <option value="A">A</option>
-          <option value="B">B</option>
+          {props.classes.map((choice) => <option key={choice} value={choice}>{choice}</option>)}
         </select>
         <h2>Enter {props.pronoun} Time:</h2>
         <input type="text" />
@@ -22,5 +21,11 @@ function Selections (props) {
       </div>
   );
 }
+
+Selections.PropTypes = {
+  pronoun: PropTypes.string,
+  cats: PropTypes.array.isRequired,
+  onChangeCategory: PropTypes.func.isRequired,
+};
 
 module.exports = Selections;

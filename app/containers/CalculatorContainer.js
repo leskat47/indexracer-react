@@ -15,6 +15,7 @@ function domData(props) {
     stateObj.cats = Object.keys(Indices).map((index) =>
       index
     );
+    stateObj.classes = [];
   return stateObj;
 }
 
@@ -30,6 +31,10 @@ var CalculatorContainer = React.createClass({
   handleShowCompare: function() {
     this.setState({compare: true});
   },
+  handleChangeCategory: function(evt) {
+    this.setState({classes: Object.keys(state.indices[evt.target.value])});
+    console.log(Object.keys(this.state.indices[evt.target.value]));
+  },
   render: function() {
     return (
       <Calculator
@@ -38,7 +43,9 @@ var CalculatorContainer = React.createClass({
         switchButton={this.state.switchButton}
         compare={this.state.compare}
         onShowCompare={this.handleShowCompare}
+        onChangeCategory={this.handleChangeCategory}
         cats={this.state.cats}
+        classes={this.state.classes}
       />
     );
   },

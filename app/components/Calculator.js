@@ -5,7 +5,6 @@ var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 
 function Calculator(props) {
-
   return (
     <div>
       <section className="row">
@@ -20,12 +19,20 @@ function Calculator(props) {
         </article>
       </section>
       <article className="userinputs">
-        <Selections cats={props.cats}/>
+        <Selections
+          cats={props.cats}
+          onChangeCategory={props.onChangeCategory}
+          classes={props.classes}
+        />
       </article>
       {
         props.compare
         ? <article className="compinputs">
-          <Selections pronoun="Competitor's" cats={props.cats}/>
+          <Selections
+            pronoun="Competitor's"
+            cats={props.cats}
+            classes={props.classes}
+          />
           </article>
         : null
       }
@@ -46,6 +53,9 @@ Calculator.propTypes = {
   switchButton: PropTypes.string.isRequired,
   onShowCompare: PropTypes.func.isRequired,
   compare: PropTypes.bool.isRequired,
+  onChangeCategory: PropTypes.func.isRequired,
+  cats: PropTypes.array.isRequired,
+  classes: PropTypes.array,
 };
 
 module.exports = Calculator;
