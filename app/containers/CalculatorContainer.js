@@ -12,9 +12,9 @@ function domData(props) {
       stateObj.switchButton = 'ProSolo';
     }
     stateObj.indices = Indices;
-    stateObj.cats = Object.keys(Indices).map((cat, values) =>
-  <option value={cat}>{cat}</option>
-);
+    stateObj.cats = Object.keys(Indices).map((index) =>
+      index
+    );
   return stateObj;
 }
 
@@ -31,7 +31,6 @@ var CalculatorContainer = React.createClass({
     this.setState({compare: true});
   },
   render: function() {
-    console.log(this.state)
     return (
       <Calculator
         header={this.props.route.header}

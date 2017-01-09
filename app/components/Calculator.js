@@ -20,12 +20,12 @@ function Calculator(props) {
         </article>
       </section>
       <article className="userinputs">
-        <Selections />
+        <Selections cats={props.cats}/>
       </article>
       {
         props.compare
         ? <article className="compinputs">
-          <Selections pronoun="Competitor's"/>
+          <Selections pronoun="Competitor's" cats={props.cats}/>
           </article>
         : null
       }
