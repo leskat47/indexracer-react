@@ -17,9 +17,6 @@ function domData(props) {
     stateObj.cats = Object.keys(Indices).map((index) =>
       index
     );
-    stateObj.cats2 = Object.keys(Indices).map((index) =>
-      index
-    );
     stateObj.classes = [];
     stateObj.classes2 = [];
   return stateObj;
@@ -55,7 +52,6 @@ var CalculatorContainer = React.createClass({
         onChangeCategory={this.handleChangeCategory}
         onChangeCompCategory={this.handleChangeCompCategory}
         cats={this.state.cats}
-        cats2={this.state.cats2}
         classes={this.state.classes}
         classes2={this.state.classes2}
       />

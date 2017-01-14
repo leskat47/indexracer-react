@@ -30,7 +30,7 @@ function Calculator(props) {
         ? <article className="compinputs">
           <Selections
             pronoun="Competitor's"
-            cats={props.cats2}
+            cats={props.cats}
             onChangeCategory={props.onChangeCompCategory}
             classes={props.classes2}
           />
@@ -56,7 +56,6 @@ Calculator.propTypes = {
   compare: PropTypes.bool.isRequired,
   onChangeCategory: PropTypes.func.isRequired,
   cats: PropTypes.array.isRequired,
-  cats2: PropTypes.array,
   classes: PropTypes.array,
 };
 
