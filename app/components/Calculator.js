@@ -20,7 +20,7 @@ function Calculator(props) {
       </section>
       <article className="userinputs">
         <Selections
-          cats={props.cats}
+          cats={props.cats2}
           onChangeCategory={props.onChangeCategory}
           classes={props.classes}
         />
@@ -30,8 +30,9 @@ function Calculator(props) {
         ? <article className="compinputs">
           <Selections
             pronoun="Competitor's"
-            cats={props.cats}
-            classes={props.classes}
+            cats={props.cats2}
+            onChangeCategory={props.onChangeCategory2}
+            classes={props.classes2}
           />
           </article>
         : null
