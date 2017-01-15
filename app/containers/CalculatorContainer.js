@@ -47,6 +47,8 @@ var CalculatorContainer = React.createClass({
     if (this.state.classes && evt.target.value){
       console.log("IF")
       this.setState({results: "FIXME: Calc and show result here"});
+    } else if (!evt.target.value){
+      this.setState({results: false})
     }
   },
   render: function() {
