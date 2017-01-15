@@ -26,7 +26,8 @@ function domData(props) {
 var CalculatorContainer = React.createClass({
   getInitialState: function () {
     state = domData(this.props);
-    state.compare = false;
+    state.compare = false; // Show or hide competitor comparison
+    state.results = false; // Show or hide results box
     return state;
   },
   componentWillReceiveProps: function () {
@@ -41,6 +42,13 @@ var CalculatorContainer = React.createClass({
   handleChangeCompCategory: function(evt) {
     this.setState({classes2: Object.keys(Indices[evt.target.value])});
   },
+  handleShowResults: function(evt) {
+    console.log(this.state.time)
+    if (this.state.classes && evt.target.value){
+      console.log("IF")
+      this.setState({results: "FIXME: Calc and show result here"});
+    }
+  },
   render: function() {
     return (
       <Calculator
@@ -51,9 +59,11 @@ var CalculatorContainer = React.createClass({
         onShowCompare={this.handleShowCompare}
         onChangeCategory={this.handleChangeCategory}
         onChangeCompCategory={this.handleChangeCompCategory}
+        showResults={this.handleShowResults}
         cats={this.state.cats}
         classes={this.state.classes}
         classes2={this.state.classes2}
+        results={this.state.results}
       />
     );
   },

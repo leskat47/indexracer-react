@@ -15,7 +15,7 @@ function Selections (props) {
           {props.classes.map((choice) => <option key={choice} value={choice}>{choice}</option>)}
         </select>
         <h2>Enter {props.pronoun} Time:</h2>
-        <input type="text" />
+        <input type="text" value={this.state.value} onChange={props.showResults} />
       </form>
         <button type="button">Clear</button>
       </div>

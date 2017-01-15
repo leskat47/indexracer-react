@@ -22,6 +22,7 @@ function Calculator(props) {
         <Selections
           cats={props.cats}
           onChangeCategory={props.onChangeCategory}
+          showResults={props.showResults}
           classes={props.classes}
         />
       </article>
@@ -32,6 +33,7 @@ function Calculator(props) {
             pronoun="Competitor's"
             cats={props.cats}
             onChangeCategory={props.onChangeCompCategory}
+            showResults={props.showResults}
             classes={props.classes2}
           />
           </article>
@@ -44,6 +46,19 @@ function Calculator(props) {
         </article>
         : null
       }
+      {
+        props.results
+        ?
+        <section className="row">
+          <article className="col-xs-12">
+              <h2 className="result">Results</h2>
+              <p id="resultComment">{props.results}</p>
+          </article>
+        </section>
+        : null
+      }
+
+
     </div>
   );
 }
