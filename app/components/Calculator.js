@@ -22,7 +22,8 @@ function Calculator(props) {
         <Selections
           cats={props.cats}
           onChangeCategory={props.onChangeCategory}
-          showResults={props.showResults}
+          onChangeClass={props.onChangeClass}
+          showResults={props.getTime}
           classes={props.classes}
         />
       </article>
@@ -33,7 +34,8 @@ function Calculator(props) {
             pronoun="Competitor's"
             cats={props.cats}
             onChangeCategory={props.onChangeCompCategory}
-            showResults={props.showResults}
+            onChangeClass={props.onChangeCompClass}
+            showResults={props.getCompTime}
             classes={props.classes2}
           />
           </article>

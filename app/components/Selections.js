@@ -2,7 +2,6 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 
 function Selections (props) {
-  console.log(props)
   return (
     <div>
       <form>
@@ -11,11 +10,11 @@ function Selections (props) {
           {props.cats.map((choice) => <option key={choice} value={choice}>{choice}</option>)}
         </select>
         <h2>{props.pronoun}  SCCA Class:</h2>
-        <select>
+        <select onChange={props.onChangeClass}>
           {props.classes.map((choice) => <option key={choice} value={choice}>{choice}</option>)}
         </select>
         <h2>Enter {props.pronoun} Time:</h2>
-        <input type="text" value={this.state.value} onChange={props.showResults} />
+        <input type="text" value={props.time} onChange={props.showResults} />
       </form>
         <button type="button">Clear</button>
       </div>

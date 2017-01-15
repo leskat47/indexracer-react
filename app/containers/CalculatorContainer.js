@@ -21,13 +21,34 @@ function domData(props) {
     stateObj.classes2 = [];
   return stateObj;
 }
+function calcResults(stt) {
+  console.log(Indices[stt.category][stt.class])
+  if (stt.time && stt.time2) {
+    var idxTime = Indices[stt.category][stt.class];
+    var idxTime2 = Indices[stt.category2][stt.class2];
+    if (idxTime > idxTime2) {
+      return 'You won by ' + (idxTime - idxTime2).toFixed(3);
+    } else if (idxTime2 > idxTime) {
+      return 'Sorry, you lost by ' + (idxTime2 - idxTime).toFixed(3);
+    } else {
+      return "It's a tie!";
+    }
+  } else if (stt.time && stt.class2) {
 
+    return "Your competitor will need greater than " + (stt.time/Indices[stt.category2][stt.class2]).toFixed(3) + " to win.";
+  } else if (stt.time2 && stt.class) {
+    return "You will need greater than " + (stt.time2/Indices[stt.category][stt.class]).toFixed(3) + " to win.";
+  } else {
+    return false;
+  }
+}
 // React calculator container
 var CalculatorContainer = React.createClass({
   getInitialState: function () {
-    state = domData(this.props);
+    var state = domData(this.props);
     state.compare = false; // Show or hide competitor comparison
     state.results = false; // Show or hide results box
+    state.time = "";
     return state;
   },
   componentWillReceiveProps: function () {
@@ -37,19 +58,35 @@ var CalculatorContainer = React.createClass({
     this.setState({compare: true});
   },
   handleChangeCategory: function(evt) {
+    this.setState({category: evt.target.value});
     this.setState({classes: Object.keys(Indices[evt.target.value])});
   },
   handleChangeCompCategory: function(evt) {
+    this.setState({category2: evt.target.value});
     this.setState({classes2: Object.keys(Indices[evt.target.value])});
   },
-  handleShowResults: function(evt) {
-    console.log(this.state.time)
-    if (this.state.classes && evt.target.value){
-      console.log("IF")
-      this.setState({results: "FIXME: Calc and show result here"});
-    } else if (!evt.target.value){
-      this.setState({results: false})
-    }
+  handleChangeClass: function(evt) {
+    this.setState({class: evt.target.value}, function(){
+      this.setState({ results: calcResults(this.state) })
+    });
+  },
+  handleChangeCompClass: function(evt) {
+    this.setState({class2: evt.target.value}, function(){
+      this.setState({ results: calcResults(this.state) })
+    });
+  },
+  handleGetTime: function (evt) {
+    this.setState({time: evt.target.value}, function(){
+      var results = calcResults(this.state);
+      console.log(results)
+      this.setState({ results: results})
+    });
+    console.log(this.state);
+  },
+  handleGetCompTime: function (evt) {
+    this.setState({time: evt.target.value}, function(){
+      this.setState({ results: calcResults(this.state) })
+    });
   },
   render: function() {
     return (
@@ -61,7 +98,10 @@ var CalculatorContainer = React.createClass({
         onShowCompare={this.handleShowCompare}
         onChangeCategory={this.handleChangeCategory}
         onChangeCompCategory={this.handleChangeCompCategory}
-        showResults={this.handleShowResults}
+        onChangeClass={this.handleChangeClass}
+        onChangeCompClass={this.handleChangeCompClass}
+        getTime={this.handleGetTime}
+        getCompTime={this.handleGetCompTime}
         cats={this.state.cats}
         classes={this.state.classes}
         classes2={this.state.classes2}
