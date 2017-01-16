@@ -16,8 +16,8 @@ function Selections (props) {
         <h2>Enter {props.pronoun} Time:</h2>
         <input type="text" value={props.time} onChange={props.showResults} />
       </form>
-        <button type="button">Clear</button>
-      </div>
+      <button type="button">Clear</button>
+    </div>
   );
 }
 

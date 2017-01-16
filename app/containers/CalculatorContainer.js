@@ -22,7 +22,7 @@ function domData(props) {
   return stateObj;
 }
 function calcResults(stt) {
-  console.log(Indices[stt.category][stt.class])
+  console.log(stt.time)
   if (stt.time && stt.time2) {
     var idxTime = Indices[stt.category][stt.class];
     var idxTime2 = Indices[stt.category2][stt.class2];
@@ -34,7 +34,6 @@ function calcResults(stt) {
       return "It's a tie!";
     }
   } else if (stt.time && stt.class2) {
-
     return "Your competitor will need greater than " + (stt.time/Indices[stt.category2][stt.class2]).toFixed(3) + " to win.";
   } else if (stt.time2 && stt.class) {
     return "You will need greater than " + (stt.time2/Indices[stt.category][stt.class]).toFixed(3) + " to win.";
@@ -49,6 +48,7 @@ var CalculatorContainer = React.createClass({
     state.compare = false; // Show or hide competitor comparison
     state.results = false; // Show or hide results box
     state.time = "";
+    state.time2 = "";
     return state;
   },
   componentWillReceiveProps: function () {
@@ -78,13 +78,11 @@ var CalculatorContainer = React.createClass({
   handleGetTime: function (evt) {
     this.setState({time: evt.target.value}, function(){
       var results = calcResults(this.state);
-      console.log(results)
-      this.setState({ results: results})
+      this.setState({ results: results });
     });
-    console.log(this.state);
   },
   handleGetCompTime: function (evt) {
-    this.setState({time: evt.target.value}, function(){
+    this.setState({time2: evt.target.value}, function(){
       this.setState({ results: calcResults(this.state) })
     });
   },
@@ -105,6 +103,8 @@ var CalculatorContainer = React.createClass({
         cats={this.state.cats}
         classes={this.state.classes}
         classes2={this.state.classes2}
+        time={this.state.time}
+        time2={this.state.time2}
         results={this.state.results}
       />
     );

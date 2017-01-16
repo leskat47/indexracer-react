@@ -25,6 +25,7 @@ function Calculator(props) {
           onChangeClass={props.onChangeClass}
           showResults={props.getTime}
           classes={props.classes}
+          time={props.time}
         />
       </article>
       {
@@ -37,6 +38,7 @@ function Calculator(props) {
             onChangeClass={props.onChangeCompClass}
             showResults={props.getCompTime}
             classes={props.classes2}
+            time={props.time2}
           />
           </article>
         : null
@@ -59,8 +61,6 @@ function Calculator(props) {
         </section>
         : null
       }
-
-
     </div>
   );
 }
