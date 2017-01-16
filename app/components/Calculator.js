@@ -40,10 +40,10 @@ function Calculator(props) {
             classes={props.classes2}
             time={props.time2}
           />
-          </article>
+        </article>
         : null
       }
-      { !props.compare
+      {!props.compare
         ?
         <article className="col-xs-12">
           <button type="button" onClick={props.onShowCompare}>Compare to Another Racer</button>
@@ -53,12 +53,12 @@ function Calculator(props) {
       {
         props.results
         ?
-        <section className="row">
-          <article className="col-xs-12">
+          <section className="row">
+            <article className="col-xs-12">
               <h2 className="result">Results</h2>
               <p id="resultComment">{props.results}</p>
-          </article>
-        </section>
+            </article>
+          </section>
         : null
       }
     </div>
@@ -72,8 +72,17 @@ Calculator.propTypes = {
   onShowCompare: PropTypes.func.isRequired,
   compare: PropTypes.bool.isRequired,
   onChangeCategory: PropTypes.func.isRequired,
+  onChangeCompCategory: PropTypes.func.isRequired,
   cats: PropTypes.array.isRequired,
+  onChangeClass: PropTypes.func.isRequired,
+  onChangeCompClass: PropTypes.func.isRequired,
   classes: PropTypes.array,
+  classes2: PropTypes.array,
+  getTime: PropTypes.func.isRequired,
+  getCompTime: PropTypes.func.isRequired,
+  time: PropTypes.number,
+  time2: PropTypes.number,
+  results: PropTypes.string,
 };
 
 module.exports = Calculator;

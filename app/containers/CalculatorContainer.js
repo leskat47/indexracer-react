@@ -21,8 +21,8 @@ function domData(props) {
     stateObj.classes2 = [];
   return stateObj;
 }
+
 function calcResults(stt) {
-  console.log(stt.time)
   if (stt.time && stt.time2) {
     var idxTime = Indices[stt.category][stt.class];
     var idxTime2 = Indices[stt.category2][stt.class2];
