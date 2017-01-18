@@ -69,7 +69,6 @@ var CalculatorContainer = React.createClass({
     this.setState({class: evt.target.value}, function(){
       this.setState({ results: calcResults(this.state) })
     });
-    // Handle calculating equivalents here
   },
   handleChangeCompClass: function(evt) {
     this.setState({class2: evt.target.value}, function(){
@@ -81,6 +80,7 @@ var CalculatorContainer = React.createClass({
       var results = calcResults(this.state);
       this.setState({ results: results });
     });
+    var userIndex = Indices[this.state.category][this.state.class] * this.state.time
   },
   handleGetCompTime: function (evt) {
     this.setState({time2: evt.target.value}, function(){
@@ -113,6 +113,8 @@ var CalculatorContainer = React.createClass({
           <h2>Time Equivalents</h2>
           <div className="row">
             <div className="col-xs-12 col-md-6">
+            {Object.keys(Indices).map((category) => <p><b>{category}</b></p>)}
+
             </div>
           </div>
         </main>
