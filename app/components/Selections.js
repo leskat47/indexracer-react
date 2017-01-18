@@ -16,17 +16,19 @@ function Selections (props) {
           {props.classes.map((choice) => <option key={choice} value={choice}>{choice}</option>)}
         </select>
         <h2>Enter {props.pronoun} Time:</h2>
-        <input type="text" value={props.time} onChange={props.showResults} disabled={ props.class == "" }/>
+        <input type="text" value={props.time} onChange={props.showResults} disabled={props.class == ""}/>
       </form>
       <button type="button">Clear</button>
     </div>
   );
 }
 
-Selections.PropTypes = {
+Selections.propTypes = {
   pronoun: PropTypes.string,
   cats: PropTypes.array.isRequired,
   onChangeCategory: PropTypes.func.isRequired,
+  onChangeClass: PropTypes.func.isRequired,
+  showResults: PropTypes.func.isRequired,
 };
 
 module.exports = Selections;
