@@ -80,8 +80,8 @@ Calculator.propTypes = {
   classes2: PropTypes.array,
   getTime: PropTypes.func.isRequired,
   getCompTime: PropTypes.func.isRequired,
-  time: PropTypes.number,
-  time2: PropTypes.number,
+  time: PropTypes.string,
+  time2: PropTypes.string,
   results: PropTypes.string,
 };
 

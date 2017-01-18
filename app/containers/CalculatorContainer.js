@@ -38,7 +38,7 @@ function calcResults(stt) {
   } else if (stt.time2 && stt.class) {
     return "You will need greater than " + (stt.time2/Indices[stt.category][stt.class]).toFixed(3) + " to win.";
   } else {
-    return false;
+    return "";
   }
 }
 // React calculator container
@@ -46,7 +46,7 @@ var CalculatorContainer = React.createClass({
   getInitialState: function () {
     var state = domData(this.props);
     state.compare = false; // Show or hide competitor comparison
-    state.results = false; // Show or hide results box
+    state.results = ""; // Show or hide results box
     state.time = "";
     state.time2 = "";
     return state;
@@ -88,25 +88,27 @@ var CalculatorContainer = React.createClass({
   },
   render: function() {
     return (
-      <Calculator
-        header={this.props.route.header}
-        switchLink={this.state.switchLink}
-        switchButton={this.state.switchButton}
-        compare={this.state.compare}
-        onShowCompare={this.handleShowCompare}
-        onChangeCategory={this.handleChangeCategory}
-        onChangeCompCategory={this.handleChangeCompCategory}
-        onChangeClass={this.handleChangeClass}
-        onChangeCompClass={this.handleChangeCompClass}
-        getTime={this.handleGetTime}
-        getCompTime={this.handleGetCompTime}
-        cats={this.state.cats}
-        classes={this.state.classes}
-        classes2={this.state.classes2}
-        time={this.state.time}
-        time2={this.state.time2}
-        results={this.state.results}
-      />
+      <div>
+        <Calculator
+          header={this.props.route.header}
+          switchLink={this.state.switchLink}
+          switchButton={this.state.switchButton}
+          compare={this.state.compare}
+          onShowCompare={this.handleShowCompare}
+          onChangeCategory={this.handleChangeCategory}
+          onChangeCompCategory={this.handleChangeCompCategory}
+          onChangeClass={this.handleChangeClass}
+          onChangeCompClass={this.handleChangeCompClass}
+          getTime={this.handleGetTime}
+          getCompTime={this.handleGetCompTime}
+          cats={this.state.cats}
+          classes={this.state.classes}
+          classes2={this.state.classes2}
+          time={this.state.time}
+          time2={this.state.time2}
+          results={this.state.results}
+        />
+      </div>
     );
   },
 });
