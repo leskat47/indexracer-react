@@ -69,6 +69,7 @@ var CalculatorContainer = React.createClass({
     this.setState({class: evt.target.value}, function(){
       this.setState({ results: calcResults(this.state) })
     });
+    // Handle calculating equivalents here
   },
   handleChangeCompClass: function(evt) {
     this.setState({class2: evt.target.value}, function(){
@@ -108,6 +109,13 @@ var CalculatorContainer = React.createClass({
           time2={this.state.time2}
           results={this.state.results}
         />
+        <main className="main2 col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
+          <h2>Time Equivalents</h2>
+          <div className="row">
+            <div className="col-xs-12 col-md-6">
+            </div>
+          </div>
+        </main>
       </div>
     );
   },
