@@ -116,7 +116,10 @@ var CalculatorContainer = React.createClass({
             <div className="row">
               <div className="col-xs-12 col-md-6">
               {Object.entries(Indices).map(([category, classes]) =>
-                <ListEquivalents key={category} category={category} time={this.state.time} />
+                <div>
+                  <h4>{category}</h4>
+                  <p>{Object.entries(Indices[category]).map((cls) => <span>{cls[0]}: {cls[1] * this.state.time}<br /></span>)}</p>
+                </div>
               )}
               </div>
             </div>
@@ -128,13 +131,5 @@ var CalculatorContainer = React.createClass({
   },
 });
 
-function ListEquivalents(props) {
-  return (
-    <div>
-      <h4>{props.category}</h4>
-      <p>{Object.entries(Indices[props.category]).map((cls) => <span>{cls[0]}: {cls[1] * props.time}<br /></span>)}</p>
-    </div>
-  )
-}
 
 module.exports = CalculatorContainer;
