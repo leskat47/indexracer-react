@@ -109,27 +109,30 @@ var CalculatorContainer = React.createClass({
           time2={this.state.time2}
           results={this.state.results}
         />
-        <main className="main2 col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
-          <h2>Time Equivalents</h2>
-          <div className="row">
-            <div className="col-xs-12 col-md-6">
-            {Object.entries(Indices).map(([category, classes]) =>
-              <ListEquivalents key={category} category={category} time={this.state.time} />
-            )}
+        {
+        this.state.time
+        ? <main className="main2 col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
+            <h2>Time Equivalents</h2>
+            <div className="row">
+              <div className="col-xs-12 col-md-6">
+              {Object.entries(Indices).map(([category, classes]) =>
+                <ListEquivalents key={category} category={category} time={this.state.time} />
+              )}
+              </div>
             </div>
-          </div>
-        </main>
+          </main>
+          : null
+        }
       </div>
     );
   },
 });
 
 function ListEquivalents(props) {
-  console.log(props.time)
   return (
     <div>
       <h4>{props.category}</h4>
-      <p>{Object.entries(Indices[props.category]).map((cls) => <p>{cls[0]}: {cls[1] * props.time}</p>)}</p>
+      <p>{Object.entries(Indices[props.category]).map((cls) => <span>{cls[0]}: {cls[1] * props.time}<br /></span>)}</p>
     </div>
   )
 }
