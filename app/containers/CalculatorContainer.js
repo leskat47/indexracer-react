@@ -118,7 +118,7 @@ var CalculatorContainer = React.createClass({
                 <div>
                   <p><b>{category}</b></p>
                   <p>{Object.entries(Indices[category]).map((cls) =>
-                    <span>{cls[0]}: {cls[1] * this.state.time}<br /></span>)}</p>
+                    <span>{cls[0]}: {(cls[1] * this.state.time).toFixed(2)}<br /></span>)}</p>
                 </div>
               )}
             </div>
