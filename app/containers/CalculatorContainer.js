@@ -55,35 +55,34 @@ var CalculatorContainer = React.createClass({
     this.setState(domData(this.props));
   },
   handleShowCompare: function() {
-    this.setState({compare: true});
+    this.setState({ compare: true });
   },
   handleChangeCategory: function(evt) {
-    this.setState({category: evt.target.value});
-    this.setState({classes: Object.keys(Indices[evt.target.value])});
+    this.setState({ category: evt.target.value });
+    this.setState({ classes: Object.keys(Indices[evt.target.value]) });
   },
   handleChangeCompCategory: function(evt) {
-    this.setState({category2: evt.target.value});
-    this.setState({classes2: Object.keys(Indices[evt.target.value])});
+    this.setState({ category2: evt.target.value });
+    this.setState({ classes2: Object.keys(Indices[evt.target.value]) });
   },
   handleChangeClass: function(evt) {
-    this.setState({class: evt.target.value}, function(){
+    this.setState({ class: evt.target.value }, function(){
       this.setState({ results: calcResults(this.state) })
     });
   },
   handleChangeCompClass: function(evt) {
-    this.setState({class2: evt.target.value}, function(){
+    this.setState({ class2: evt.target.value }, function(){
       this.setState({ results: calcResults(this.state) })
     });
   },
   handleGetTime: function (evt) {
-    this.setState({time: evt.target.value}, function(){
-      var results = calcResults(this.state);
-      this.setState({ results: results });
+    this.setState({ time: evt.target.value }, function(){
+      this.setState({ results: calcResults(this.state) });
     });
-    var userIndex = Indices[this.state.category][this.state.class] * this.state.time
+    var userIndex = Indices[this.state.category][this.state.class] * this.state.time;
   },
   handleGetCompTime: function (evt) {
-    this.setState({time2: evt.target.value}, function(){
+    this.setState({ time2: evt.target.value }, function(){
       this.setState({ results: calcResults(this.state) })
     });
   },
@@ -112,19 +111,20 @@ var CalculatorContainer = React.createClass({
         {
         this.state.time
         ? <main className="main2 col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
-            <h2>Time Equivalents</h2>
-            <div className="row">
-              <div className="col-xs-12 col-md-6">
+          <h2>Time Equivalents</h2>
+          <div className="row">
+            <div className="col-xs-12 col-md-6">
               {Object.entries(Indices).map(([category, classes]) =>
                 <div>
-                  <h4>{category}</h4>
-                  <p>{Object.entries(Indices[category]).map((cls) => <span>{cls[0]}: {cls[1] * this.state.time}<br /></span>)}</p>
+                  <p><b>{category}</b></p>
+                  <p>{Object.entries(Indices[category]).map((cls) =>
+                    <span>{cls[0]}: {cls[1] * this.state.time}<br /></span>)}</p>
                 </div>
               )}
-              </div>
             </div>
-          </main>
-          : null
+          </div>
+        </main>
+        : null
         }
       </div>
     );
