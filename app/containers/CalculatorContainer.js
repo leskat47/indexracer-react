@@ -112,16 +112,15 @@ var CalculatorContainer = React.createClass({
         this.state.time
         ? <main className="main2 col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4">
           <h2>Time Equivalents</h2>
-          <div className="row">
-
+          <div className="classcolumns">
             {Object.entries(Indices).map(([category, classes]) =>
-              <div className="col-xs-12 col-md-6">
+              <div>
                 <p><b>{category}</b></p>
                 <p>{Object.entries(Indices[category]).map((cls) =>
                   <span>{cls[0]}: {(cls[1] * this.state.time).toFixed(2)}<br /></span>)}</p>
               </div>
             )}
-
+          
           </div>
         </main>
         : null
