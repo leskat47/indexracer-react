@@ -86,6 +86,9 @@ var CalculatorContainer = React.createClass({
       this.setState({ results: calcResults(this.state) })
     });
   },
+  handleClearEntries: function () {
+    this.setState({time: ''});
+  },
   render: function() {
     return (
       <div>
@@ -107,6 +110,7 @@ var CalculatorContainer = React.createClass({
           time={this.state.time}
           time2={this.state.time2}
           results={this.state.results}
+          onClearEntries={this.handleClearEntries}
         />
         {
         this.state.time
@@ -120,7 +124,7 @@ var CalculatorContainer = React.createClass({
                   <span>{cls[0]}: {(cls[1] * this.state.time).toFixed(2)}<br /></span>)}</p>
               </div>
             )}
-          
+
           </div>
         </main>
         : null

@@ -27,6 +27,7 @@ function Calculator(props) {
             showResults={props.getTime}
             classes={props.classes}
             time={props.time}
+            onClearEntries={props.onClearEntries}
           />
         </article>
         {
@@ -85,6 +86,7 @@ Calculator.propTypes = {
   time: PropTypes.string,
   time2: PropTypes.string,
   results: PropTypes.string,
+  clearEntries: PropTypes.func.isRequired,
 };
 
 module.exports = Calculator;
